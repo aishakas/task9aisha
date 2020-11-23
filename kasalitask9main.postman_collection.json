@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "cb9c438f-89c7-496a-b2bb-8957f5d441e7",
+		"name": "kasalitask9",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all todo entires",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{task9}}todo",
+					"host": [
+						"{{task9}}todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get a single todo data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a094c0a7-4c01-4d46-811f-500ff45d6b2d",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{task9}}todo/?todo_id=2",
+					"host": [
+						"{{task9}}todo"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "todo_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04deb3b2-e1d8-48da-900e-0f9bd6783278",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{task91}}user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76712aa4-c58f-4971-ab00-6fa45d375418",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{task91}}user",
+					"host": [
+						"{{task91}}user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
