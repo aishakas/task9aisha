@@ -7,6 +7,26 @@
 	"item": [
 		{
 			"name": "get all todo entires",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d614b28b-9718-4cd7-83e9-34aa604b765f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -25,11 +45,18 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a094c0a7-4c01-4d46-811f-500ff45d6b2d",
+						"id": "0768f2e8-4248-4efc-9154-1fa388e59427",
 						"exec": [
-							"pm.test(\"Successful POST request\", function () {\r",
-							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
-							"});"
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -58,11 +85,34 @@
 		},
 		{
 			"name": "update user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9095c5a4-9dff-41cb-bf3a-cd3138a8ee22",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{task91}}2",
+					"host": [
+						"{{task91}}2"
+					]
 				}
 			},
 			"response": []
@@ -77,6 +127,12 @@
 						"exec": [
 							"pm.test(\"Status code is 204\", function () {\r",
 							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function (){\r",
+							"    pm.response.to.have.status(\"No Content\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -87,15 +143,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users/2",
-					"protocol": "https",
+					"raw": "{{task91}}users/2",
 					"host": [
-						"reqres",
-						"in"
+						"{{task91}}users"
 					],
 					"path": [
-						"api",
-						"users",
 						"2"
 					]
 				}
@@ -116,7 +168,9 @@
 							"pm.test(\"Content-Type is present\", function () {\r",
 							"    pm.response.to.have.header(\"Content-Type\");\r",
 							"});\r",
-							"\r",
+							"pm.test(\"Status code name has string\", function (){\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
 							""
 						],
 						"type": "text/javascript"
